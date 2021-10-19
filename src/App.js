@@ -14,13 +14,23 @@ import chili from './images/pizzachili.jpeg';
 import prosciutto from './images/pizzaprosciutto.jpeg';
 import parmiggiana from './images/pizzaparmiggiana.jpeg';
 
-
-
-
-
-
-
 class App extends Component {
+  state = {
+    cards: [
+      { id: 0, image: margherita, name: "Margherita", price: 7.55 },
+      { id: 1, image: carciofi, name: "Carciofi", price: 9.55 },
+      { id: 2, image: perenoci, name: "Pere & Noci", price: 8.45 },
+      { id: 3, image: capperi, name: "Capperi", price: 6.55 },
+      { id: 4, image: fruttimare, name: "Frutti Di Mare", price: 7.55 },
+      { id: 5, image: patatine, name: "Patatine & Wurstel", price: 9.55 },
+      { id: 6, image: quattrostagioni, name: "Quattro Stagioni", price: 7.95 },
+      { id: 7, image: pesto, name: "Pesto Genovese", price: 7.45 },
+      { id: 8, image: capricciosa, name: "Capricciosa", price: 7.55 },
+      { id: 9, image: chili, name: "Chili", price: 8.55 },
+      { id: 10, image: prosciutto, name: "Prosciutto", price: 5.95 },
+      { id: 11, image: parmiggiana, name: "Parmiggiana", price: 7.25 }
+    ]
+  }
   render() {
     return (
       <>
@@ -29,55 +39,12 @@ class App extends Component {
           <h1>What do you fancy to eat today?</h1>
           <hr />
           <div className='row'>
-            <Card
-              image={margherita}
-              name="Margherita"
-              price={9.35} />
-            <Card
-              image={carciofi}
-              name="Carciofi"
-              price={9.00} />
-            <Card
-              image={perenoci}
-              name="Pere e Noci"
-              price={8.45} />
-            <Card
-              image={capricciosa}
-              name="Capricciosa"
-              price={9.00} />
-            <Card
-              image={capperi}
-              name="Capperi e Acciughe"
-              price={6.00} />
-            <Card
-              image={fruttimare}
-              name="Frutti di Mare"
-              price={7.45} />
-            <Card
-              image={patatine}
-              name="Patatine e Wustell"
-              price={9.00} />
-
-            <Card
-              image={quattrostagioni}
-              name="Quattro Stagioni"
-              price={9.45} />
-            <Card
-              image={pesto}
-              name="Pesto Genovese"
-              price={8.95} />
-            <Card
-              image={chili}
-              name="Piccante"
-              price={8.95} />
-            <Card
-              image={prosciutto}
-              name="Prosciutto e Funghi"
-              price={8.95} />
-            <Card
-              image={parmiggiana}
-              name="Parmiggiana"
-              price={8.95} />
+            {this.state.cards.map(card => (
+              <Card
+                key={card.id}
+                card={card}
+              />
+            ))}
           </div>
         </div>
       </>

@@ -6,10 +6,10 @@ class Card extends Component {
             <div className='col'>
                 {/* card style jS object */}
                 <div className="card" style={{ width: '18rem', textAlign: 'center' }}>
-                    <img className="card-img-top" src={this.props.image} alt="Card image cap" />
+                    <img className="card-img-top" src={this.props.card.image} alt="Card image cap" />
                     <div className="card-body">
-                        <h5 className="card-title">Pizza {this.props.name}</h5>
-                        <p className="card-text">£{this.props.price}</p>
+                        <h5 className="card-title">Pizza {this.props.card.name}</h5>
+                        <p className="card-text">£{this.props.card.price}</p>
                         <button className="btn btn-outline-danger">Delete</button>
                     </div>
                 </div>
