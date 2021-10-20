@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 class Card extends Component {
     render() {
         return (
@@ -10,7 +9,9 @@ class Card extends Component {
                     <div className="card-body">
                         <h5 className="card-title">Pizza {this.props.card.name}</h5>
                         <p className="card-text">£{this.props.card.price}</p>
-                        <button className="btn btn-outline-danger">Delete</button>
+                        {/* <button onClick={this.props.onDelete()} className="btn btn-outline-danger">Delete</button>
+                        we need an arrow function to delete an argument of the function */}
+                        <button onClick={() => this.props.onDelete(this.props.card.id)} className="btn btn-outline-danger">Delete</button>
                     </div>
                 </div>
             </div>

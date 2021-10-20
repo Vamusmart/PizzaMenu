@@ -14,6 +14,7 @@ import chili from './images/pizzachili.jpeg';
 import prosciutto from './images/pizzaprosciutto.jpeg';
 import parmiggiana from './images/pizzaparmiggiana.jpeg';
 
+
 class App extends Component {
   state = {
     cards: [
@@ -31,6 +32,17 @@ class App extends Component {
       { id: 11, image: parmiggiana, name: "Parmiggiana", price: 7.25 }
     ]
   }
+
+  handleDelete = cardId => {
+    // const updatedCards = this.state.cards.filter(card => card.id !== cardId);
+    // this.state.cards = updatedCards wrong way to update the state
+    // this.setState({cards: updatedCards});
+
+    //update state after you delete a card
+    const cards = this.state.cards.filter(card => card.id !== cardId);
+    this.setState({ cards });
+  }
+
   render() {
     return (
       <>
@@ -43,6 +55,7 @@ class App extends Component {
               <Card
                 key={card.id}
                 card={card}
+                onDelete={this.handleDelete}
               />
             ))}
           </div>
