@@ -18,18 +18,18 @@ import parmiggiana from './images/pizzaparmiggiana.jpeg';
 class App extends Component {
   state = {
     cards: [
-      { id: 0, image: margherita, name: "Margherita", price: 7.55 },
-      { id: 1, image: carciofi, name: "Carciofi", price: 9.55 },
-      { id: 2, image: perenoci, name: "Pere & Noci", price: 8.45 },
-      { id: 3, image: capperi, name: "Capperi", price: 6.55 },
-      { id: 4, image: fruttimare, name: "Frutti Di Mare", price: 7.55 },
-      { id: 5, image: patatine, name: "Patatine & Wurstel", price: 9.55 },
-      { id: 6, image: quattrostagioni, name: "Quattro Stagioni", price: 7.95 },
-      { id: 7, image: pesto, name: "Pesto Genovese", price: 7.45 },
-      { id: 8, image: capricciosa, name: "Capricciosa", price: 7.55 },
-      { id: 9, image: chili, name: "Chili", price: 8.55 },
-      { id: 10, image: prosciutto, name: "Prosciutto", price: 5.95 },
-      { id: 11, image: parmiggiana, name: "Parmiggiana", price: 7.25 }
+      { id: 0, image: margherita, name: "Margherita", price: 7.55, quantity: 0 },
+      { id: 1, image: carciofi, name: "Carciofi", price: 9.55, quantity: 0 },
+      { id: 2, image: perenoci, name: "Pere & Noci", price: 8.45, quantity: 0 },
+      { id: 3, image: capperi, name: "Capperi", price: 6.55, quantity: 0 },
+      { id: 4, image: fruttimare, name: "Frutti Di Mare", price: 7.55, quantity: 0 },
+      { id: 5, image: patatine, name: "Patatine & Wurstel", price: 9.55, quantity: 0 },
+      { id: 6, image: quattrostagioni, name: "Quattro Stagioni", price: 7.95, quantity: 0 },
+      { id: 7, image: pesto, name: "Pesto Genovese", price: 7.45, quantity: 0 },
+      { id: 8, image: capricciosa, name: "Capricciosa", price: 7.55, quantity: 0 },
+      { id: 9, image: chili, name: "Chili", price: 8.55, quantity: 0 },
+      { id: 10, image: prosciutto, name: "Prosciutto", price: 5.95, quantity: 0 },
+      { id: 11, image: parmiggiana, name: "Parmiggiana", price: 7.25, quantity: 0 }
     ]
   }
 
@@ -40,6 +40,14 @@ class App extends Component {
 
     //update state after you delete a card
     const cards = this.state.cards.filter(card => card.id !== cardId);
+    this.setState({ cards });
+  }
+
+  handleIncrement = card => {
+    const cards = [...this.state.cards];
+    const id = cards.indexOf(card);
+    cards[id] = { ...card };
+    cards[id].quantity++;
     this.setState({ cards });
   }
 
@@ -56,6 +64,7 @@ class App extends Component {
                 key={card.id}
                 card={card}
                 onDelete={this.handleDelete}
+                onIncrement={this.handleIncrement}
               />
             ))}
           </div>

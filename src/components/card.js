@@ -5,6 +5,7 @@ class Card extends Component {
             <div className='col'>
                 {/* card style jS object */}
                 <div className="card" style={{ width: '18rem', textAlign: 'center' }}>
+                    <button onClick={() => this.props.onIncrement(this.props.card)} className="btn btn-primary">Add<span className='badge badge-light'>{this.props.card.quantity}</span></button>
                     <img className="card-img-top" src={this.props.card.image} alt="Card image cap" />
                     <div className="card-body">
                         <h5 className="card-title">Pizza {this.props.card.name}</h5>
